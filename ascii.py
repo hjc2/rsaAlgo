@@ -1,7 +1,4 @@
 
-
-m = "Hello127438244"
-
 def encodeAscii(m):
     text = ''
     for x in m:
@@ -21,8 +18,3 @@ def decodeAscii(m):
         text = text + chr(int(number_str[i:i+3]) % 900)
 
     return(text)
-    
-
-message = encodeAscii(m)
-
-print(decodeAscii(message))
