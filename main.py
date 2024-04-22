@@ -19,7 +19,8 @@ phi = totient(p, q)
 e = public_exponent(phi)
 d = modinv(e, phi)
 
-P = "Hello!"
+print("enter message to be sent: ")
+P = input()
 
 print("p : " + str(p))
 print("q : " + str(p))
