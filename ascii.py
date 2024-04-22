@@ -1,10 +1,6 @@
 
 
-
-
-
-m = "Hello"
-
+m = "Hello127438244"
 
 def encodeAscii(m):
     text = ''
@@ -22,15 +18,10 @@ def decodeAscii(m):
     number_str = str(m)
     text = ''
     for i in range(0, len(number_str), 3):
-        three_digits = number_str[i:i+3]
-        three_digits_int = int(three_digits) % 900
-        
-        text = text + chr(three_digits_int)
+        text = text + chr(int(number_str[i:i+3]) % 900)
 
     return(text)
     
-
-print(encodeAscii(m))
 
 message = encodeAscii(m)
 
