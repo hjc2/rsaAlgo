@@ -59,29 +59,3 @@ def rsa_decrypt(ciphertext, d, n):
 
     return plaintext
     
-
-
-p = 89
-
-q = 97
-
-n = p * q
-
-phi = totient(p, q)
-
-e = choose_public_exponent(phi)
-d = modinv(e, phi)
-
-P = "Hello"
-
-
-print("Public key (E, n):", (e, n))
-print("Private key (d, n):", (d, n))
-
-ciphertext = rsa_encrypt(P, e, n)
-
-print("Ciphertext:", ciphertext)
-
-decrypted_text = rsa_decrypt(ciphertext, d, n)
-
-print("Decrypted text:" + str(decrypted_text))
