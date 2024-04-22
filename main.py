@@ -2,7 +2,7 @@
 
 from ascii import encodeAscii, decodeAscii
 
-from rsa import totient, choose_public_exponent, modinv, rsa_encrypt, rsa_decrypt
+from rsa import totient, public_exponent, modinv, rsa_encrypt, rsa_decrypt
 
 
 print(encodeAscii("k"))
@@ -16,7 +16,7 @@ n = p * q
 
 phi = totient(p, q)
 
-e = choose_public_exponent(phi)
+e = public_exponent(phi)
 d = modinv(e, phi)
 
 P = "Hello!"
@@ -34,6 +34,7 @@ print("Public key (E, n):", (e, n))
 print("Private key (d, n):", (d, n))
 
 encodedText = int(encodeAscii(P))
+print("The message to be sent: " + P)
 print("text after ascii encoding as integer : " + str(encodedText))
 ciphertext = rsa_encrypt(encodedText, e, n)
 

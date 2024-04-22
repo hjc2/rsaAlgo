@@ -19,7 +19,7 @@ def modinv(a, m):
         raise Exception('No modular inverse')
     return x%m
     
-def choose_public_exponent(phi):
+def public_exponent(phi):
     E = 2
     while gcd(E, phi) != 1:
         E += 1
