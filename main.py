@@ -4,10 +4,6 @@ from ascii import encodeAscii, decodeAscii
 
 from rsa import totient, public_exponent, rsa_encrypt, rsa_decrypt
 
-
-print(encodeAscii("k"))
-
-
 p = 923978444369
 
 q = 496509772799

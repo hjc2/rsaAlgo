@@ -14,17 +14,18 @@ Trinity University
 ## main.py
 ```py
 from ascii import encodeAscii, decodeAscii
-from rsa import totient, public_exponent, modinv, rsa_encrypt, rsa_decrypt
 
+from rsa import totient, public_exponent, rsa_encrypt, rsa_decrypt
 
-print(encodeAscii("k"))
 p = 923978444369
 q = 496509772799
+
 n = p * q
+
 phi = totient(p, q)
 
 e = public_exponent(phi)
-d = modinv(e, phi)
+d = pow(e, -1, phi)
 
 print("enter message to be sent: ")
 P = input()
@@ -64,18 +65,6 @@ def gcd(a, b):
     while b != 0:
         a, b = b, a % b
     return a
-
-def egcd(a, b):
-    if a == 0:
-        return (b, 0, 1)
-    g, y, x = egcd(b%a,a)
-    return (g, x - (b//a) * y, y)
-
-def modinv(a, m):
-    g, x, y = egcd(a, m)
-    if g != 1:
-        raise Exception('No modular inverse')
-    return x%m
     
 def public_exponent(phi):
     E = 2
@@ -88,7 +77,6 @@ def rsa_encrypt(plaintext, E, n):
 
 def rsa_decrypt(ciphertext, d, n):
     return pow(ciphertext, d, n)
-
 ```
 
 ## ascii.py
@@ -117,12 +105,9 @@ def decodeAscii(m):
 # I use 9’s for placeholders for leading 0’s.
 ```
 
-# Running on “Hello!”
-
-
+# Running on "Hello!"
 ```
-$ python main.py 
-107
+$ python main.py
 enter message to be sent: 
 Hello!
 p : 923978444369
@@ -139,10 +124,10 @@ text after ascii encoding as integer : 972101108108111933
 Ciphertext: 322776738291196976750205
 Decrypted text: Hello!
 ```
-# Running on “a”
+
+# Running on "a"
 ```
-$ python main.py 
-107
+$ python main.py
 enter message to be sent: 
 a
 p : 923978444369
