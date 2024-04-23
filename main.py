@@ -2,7 +2,7 @@
 
 from ascii import encodeAscii, decodeAscii
 
-from rsa import totient, public_exponent, modinv, rsa_encrypt, rsa_decrypt
+from rsa import totient, public_exponent, rsa_encrypt, rsa_decrypt
 
 
 print(encodeAscii("k"))
@@ -17,7 +17,7 @@ n = p * q
 phi = totient(p, q)
 
 e = public_exponent(phi)
-d = modinv(e, phi)
+d = pow(e, -1, phi)
 
 print("enter message to be sent: ")
 P = input()

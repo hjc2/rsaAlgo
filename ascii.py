@@ -11,7 +11,6 @@ def encodeAscii(m):
     return(text)
 
 def decodeAscii(m):
-    # Iterate over the string in steps of 3
     number_str = str(m)
     text = ''
     for i in range(0, len(number_str), 3):
